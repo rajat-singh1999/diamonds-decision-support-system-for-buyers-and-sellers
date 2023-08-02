@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <title>{% block title %}Form{% endblock %}</title>
+
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-image: url("https://wallpaper.dog/large/10719999.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .form-container {
+      background-color: white;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      border-radius: 10px; /* Rounded edges */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    {% block content %}
+      {% if message %}
+        {% if category == 'error' %}
+          <div class="alert alert-danger alert-dismissable fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {% else %}
+          <div class="alert alert-success alert-dismissable fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {% endif %}
+      {% endif %}
+
+      <form method="POST">
+        <div class="form-group my-5">
+          <label for="carat">Carat</label>
+          <input type="text" name="carat" class="form-control" id="carat" aria-describedby="emailHelp" placeholder="Enter Carat">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+
+        <div class="form-inline">
+          <label class="my-1 mr-2" for="cut">Cut</label>
+          <select class="custom-select my-1 mr-sm-2" id="cut" name="cut">
+            <option value="1" selected>One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+          <label class="my-1 mr-2" for="color">Color</label>
+          <select class="custom-select my-1 mr-sm-2" id="color" name="color">
+            <option value="1" selected>One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+          <label class="my-1 mr-2" for="clarity">Clarity</label>
+          <select class="custom-select my-1 mr-sm-2" id="clarity" name="clarity">
+            <option value="1" selected>One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="depth">Depth</label>
+          <input type="text" name="depth" class="form-control" id="depth" placeholder="Depth of Diamond">
+
+          <label for="table">Table</label>
+          <input type="text" name="table" class="form-control" id="table" placeholder="Table of Diamond">
+
+          <label for="x">X</label>
+          <input type="text" name="x" class="form-control" id="x" placeholder="x dimension of Diamond">
+
+          <label for="y">Y</label>
+          <input type="text" name="y" class="form-control" id="y" placeholder="y dimension of Diamond">
+
+          <label for="z">Z</label>
+          <input type="text" name="z" class="form-control" id="z" placeholder="z dimension of Diamond">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      {% if vol %}
+        {{ vol }}
+      {% endif %}
+    {% endblock %}
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

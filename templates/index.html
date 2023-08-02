@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Single Page Website</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-image: url('https://wallpaper.dog/large/10719999.jpg'); /* Change to your local background image path */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: rgba(0, 0, 0, 0.5); /* Change the alpha value to adjust darkness (0.5 = 50% transparency) */
+      color: rgb(216, 239, 17); /* Text color set to white */    }
+
+    .project-name {
+      font-size: 48px;
+      text-align: center;
+      padding-top: 90px; /* Decreased the upper padding by 10 pixels */
+      margin-bottom: 30px;
+    }
+
+    .project-description {
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 30px;
+      color: rgb(216, 239, 17)
+    }
+
+    .card {
+      transition: transform 0.3s;
+      cursor: pointer; /* Set the cursor to pointer when hovering over the card */
+      background-color: rgba(255, 255, 255, 0.454); /* Set card background color to white */
+      color: rgb(216, 239, 17)k; /* Set text color to black */
+      border-radius: 10px; /* Rounded edges */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card-custom {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Main Content -->
+<div class="container py-5">
+  <!-- Project Name -->
+  <div class="project-name">
+    Diamonds For You
+  </div>
+
+  <!-- Project Description -->
+  <div class="project-description">
+    This is an open source project built on an everevolving data warehouse that hosts data of thounds of diamonds. We use this data to train out machine learning model that uses cutting edge technology to predict diamond prices for sellers and buyers.
+  </div>
+
+  <div class="row">
+    <!-- Card 1 -->
+    <div class="col-md-6">
+      <a class="card-custom" href="/form/buyer">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Are you a Buyer?</h5> <!-- Added Card 1 Title -->
+            <p class="card-text">
+              Buying a diamond for someone who is not from the diamond industry can be a very difficult task. Let us make it easy for you. If you exactly know what you are looking for or if you dont even have a clue, we can help. We work day and night to bridge the gaps and give are users information about diamond prices. Just give use the diamond details and our cutting edge software will predict the best price at which you can buy this diamond. Click this card to begin!
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-6">
+      <a class="card-custom" href="/form/seller">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Are you a Seller?</h5> <!-- Added Card 2 Title -->
+            <p class="card-text">
+              Running a small diamond business comes with its own special problems. These problems are very different from a genral business point of view. Let us make this easy for you. Our data warehouse of thounsands of diamonds help us ascertain the price of a diamond given its features. Our website shall help you predict the price range of the diamond so you can make an informed decision when you are dealing with the everchanging diamond market. Click this card to use are services for free right now!
+            </p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and Popper.js (optional) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
