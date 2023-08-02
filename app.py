@@ -1,5 +1,8 @@
 import re
 from flask import Flask, render_template, request, abort
+import numpy as np
+import joblib
+from sklearn.ensemble import RandomForestClassifier
 
 app = Flask(__name__)
 
@@ -50,12 +53,45 @@ def form(user):
             x = float(x)
             y = float(y)
             z = float(z)
-            vol = x*y*z
+
+            arr1 = [carat,depth,table,x,y,z]
+            cut_arr = [0.0]*5
+            color_arr = [0.0]*7
+            clarity_arr = [0.0]*8
+
+            cut_arr[cut-1] = 1.0
+            color_arr[color-1] = 1.0
+            clarity_arr[clarity-1] = 1.0
+
+            inp = arr1 + cut_arr + color_arr + clarity_arr
+
+            rf = joblib.load("RFor_NoHy_OneHot_Price.joblib")
+            ans = rf.predict(np.array(inp).reshape(1,26))
+
+            class_map = {
+                            0: (326,2175.7),
+                            1: (2175.7, 4025.4),
+                            2: (4025.4, 5875.1),
+                            3: (5875.1, 7724.8),
+                            4: (7724.8, 9574.5),
+                            5: (9574.5, 11424.2),
+                            6: (11424.2, 13273.9),
+                            7: (13273.9, 15123.6),
+                            8: (15123.6, 16973.3),
+                            9: (16973.3, 18823)
+                       }
+            # for sellers
+            max = class_map[ans][1]
+            min = class_map[ans][0]
+            print(f"The value of this diamond is in the range of ${min} and ${max}.")
+
+            # for buyers
+            print(f"The maximum price you can buy this diamond is ${max}.")
             
             message = "submitted successfully"
             category = 'success'
             print(carat,cut,color,clarity,depth,table,x,y,z,user)
-            return render_template("form.html", vol=vol, message=message, category=category, user=user)
+            return render_template("form.html", vol=ans, message=message, category=category, user=user)
 
         return render_template("form.html", user=user)
     '''
