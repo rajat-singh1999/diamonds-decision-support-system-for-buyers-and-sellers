@@ -80,13 +80,15 @@ def form(user):
                             8: (15123.6, 16973.3),
                             9: (16973.3, 18823)
                        }
-            # for sellers
             max = class_map[ans][1]
             min = class_map[ans][0]
-            print(f"The value of this diamond is in the range of ${min} and ${max}.")
-
-            # for buyers
-            print(f"The maximum price you can buy this diamond is ${max}.")
+            
+            # for sellers
+            if user == "seller":
+                ans = (f"The value of this diamond is in the range of ${min} and ${max}.")
+            else:
+                # for buyers
+                ans = (f"The maximum price you can buy this diamond is ${max}.")
             
             message = "submitted successfully"
             category = 'success'
