@@ -2,7 +2,7 @@ import re
 from flask import Flask, render_template, request, abort
 import numpy as np
 import joblib
-from sklearn.ensemble import RandomForestClassifier
+#from sklearn.ensemble import RandomForestClassifier
 
 app = Flask(__name__)
 
@@ -53,6 +53,9 @@ def form(user):
             x = float(x)
             y = float(y)
             z = float(z)
+            cut=int(cut)
+            color=int(color)
+            clarity = int(clarity)
 
             arr1 = [carat,depth,table,x,y,z]
             cut_arr = [0.0]*5
@@ -80,8 +83,8 @@ def form(user):
                             8: (15123.6, 16973.3),
                             9: (16973.3, 18823)
                        }
-            max = class_map[ans][1]
-            min = class_map[ans][0]
+            max = class_map[ans[0]][1]
+            min = class_map[ans[0]][0]
             
             # for sellers
             if user == "seller":
