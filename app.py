@@ -2,7 +2,7 @@ import re
 from flask import Flask, render_template, request, abort
 import numpy as np
 import joblib
-#from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier
 
 app = Flask(__name__)
 
